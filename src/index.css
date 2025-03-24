@@ -1,0 +1,234 @@
+@font-face {
+  font-display: swap;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/red-hat-text-v18-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./fonts/red-hat-text-v18-latin-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/red-hat-text-v18-latin-700.woff2") format("woff2");
+}
+
+:root {
+  --color-red: #c7380f;
+
+  --color-rose-900: #260f08;
+  --color-rose-500: #87635a;
+  --color-rose-400: #ad8a85;
+  --color-rose-300: #caafa7;
+  --color-rose-100: #f5eeec;
+  --color-rose-50: #fcf8f6;
+
+  --color-green: #1ea575;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --font-primary: "Red Hat Text", sans-serif;
+
+  --font-size-preset-1: 5.6rem;
+  --line-height-preset-1: 1.209;
+  --letter-spacing-preset-1: 0;
+
+  --font-size-preset-2: 2.4rem;
+  --line-height-preset-2: 1.25;
+  --letter-spacing-preset-2: 0;
+
+  --font-size-preset-3: 1.6rem;
+  --line-height-preset-3: 1.5;
+  --letter-spacing-preset-3: 0;
+
+  --font-size-preset-4: 1.4rem;
+  --line-height-preset-4: 1.5;
+  --letter-spacing-preset-4: 0;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+a {
+  display: flex;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  display: flex;
+  object-fit: cover;
+}
+
+body {
+  background-color: var(--color-rose-50);
+  font-family: var(--font-primary);
+}
+
+.btn {
+  background-color: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1276px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.grid-container {
+  padding-top: 8.8rem;
+  padding-bottom: 8.8rem;
+  display: grid;
+  grid-template-columns: 67.5% calc(32.5% - 3.2rem);
+  gap: 3.2rem;
+}
+
+.desserts-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.desserts-title {
+  font-size: var(--font-size-preset-1);
+  line-height: var(--line-height-preset-1);
+  margin-bottom: 3.2rem;
+}
+
+.desserts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250.67px, 1fr));
+  gap: 2.4rem;
+}
+
+.desserts-card-image {
+  width: 100%;
+  border-radius: 0.8rem;
+  border: 2px solid transparent;
+}
+
+.desserts-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.desserts-card-category {
+  font-size: var(--font-size-preset-4);
+  line-height: var(--line-height-preset-4);
+  color: var(--color-rose-500);
+  font-weight: 400;
+}
+
+.desserts-card-name {
+  color: var(--color-rose-900);
+  font-weight: 600;
+  font-size: var(--font-size-preset-3);
+  line-height: var(--line-height-preset-3);
+}
+
+.desserts-card-price {
+  font-weight: 600;
+  color: var(--color-red);
+  font-size: var(--font-size-preset-3);
+  line-height: var(--line-height-preset-3);
+}
+
+.buttons-wrapper {
+  align-self: center;
+  margin-top: -22.5px;
+}
+
+.add-to-card-btn {
+  border: 2px solid var(--color-rose-400);
+  padding: 1.2rem 2.8rem;
+  transition: 0.3s;
+  background-color: #ffffff;
+  margin-bottom: 1.6rem;
+}
+
+.add-to-card-btn:hover {
+  border-color: var(--color-red);
+}
+
+.add-to-card-btn:hover .add-to-card-btn-wrapper {
+  color: var(--color-red);
+}
+
+.add-to-card-btn-wrapper {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  font-weight: 600;
+}
+
+.card-button {
+  width: 16rem;
+  height: 4.4rem;
+  border: 2px solid red;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 1.2rem;
+  border-radius: 999px;
+  background-color: var(--color-red);
+  color: var(--color-rose-50);
+  margin-bottom: 1.6rem;
+}
+
+.card-decrement {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  background-color: var(--color-red);
+  color: var(--color-rose-50);
+  border: 2px solid var(--color-rose-50);
+  font-weight: 700;
+}
+
+.card-increment {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  background-color: var(--color-red);
+  color: var(--color-rose-50);
+  border: 2px solid var(--color-rose-50);
+  font-weight: 700;
+  padding: 1px;
+}
+
+.border-active .desserts-card-image {
+  border: 2px solid red;
+  transition: border 0.3s ease-in-out;
+}
