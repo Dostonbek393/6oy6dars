@@ -3,10 +3,14 @@ import { createContext } from "react";
 
 export const GlobalContext = createContext();
 
-const initalState = {
-  cart: [],
-  totalPrice: 0,
-  totalAmount: 0,
+const initalState = () => {
+  return localStorage.getItem("desserts")
+    ? JSON.parse(localStorage.getItem("desserts"))
+    : {
+        cart: [],
+        totalPrice: 0,
+        totalAmount: 0,
+      };
 };
 
 const reducer = (state, action) => {
@@ -46,29 +50,40 @@ const reducer = (state, action) => {
         cart: state.cart.filter((d) => d.id !== payload),
       };
 
-    /*case "CALCULATE_TOTAL":
-      let { totalAmount, totalPrice } = state.cart.reduce((acc, curVal) => {}, {
-        totalAmount: 0,
-        totalPrice: 0,
-      });
+    case "CALCULATE_TOTAL":
+      let { totalAmount, totalPrice } = state.cart.reduce(
+        (acc, curVal) => {
+          acc.totalAmount += curVal.amount;
+          acc.totalPrice += curVal.amount * curVal.price;
+          return acc;
+        },
+        {
+          totalAmount: 0,
+          totalPrice: 0,
+        }
+      );
       return {
         ...state,
         totalAmount,
         totalPrice,
-      };*/
+      };
     default:
       return state;
   }
 };
 
 export const GlobalContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initalState);
+  const [state, dispatch] = useReducer(reducer, initalState());
 
   useEffect(() => {
     dispatch({
       type: "CALCULATE_TOTAL",
     });
   }, [state.cart]);
+
+  useEffect(() => {
+    localStorage.setItem("desserts", JSON.stringify(state));
+  });
 
   return (
     <GlobalContext.Provider value={{ ...state, dispatch }}>
