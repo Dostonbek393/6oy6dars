@@ -40,7 +40,28 @@ function YourCart() {
             </div>
           ))
         ) : (
-          <p>Your cart is empty</p>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+              gap: "16px",
+              marginBottom: "20px",
+            }}
+          >
+            <img src="/images/illustration-empty-cart.svg" alt="" />
+            <p
+              style={{
+                textAlign: "center",
+                fontWeight: "600",
+                color: "gray",
+                fontSize: "16px",
+              }}
+            >
+              Your added items will appear here
+            </p>
+          </div>
         )}
       </div>
 
